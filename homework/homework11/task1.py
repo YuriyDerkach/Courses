@@ -37,10 +37,20 @@ def calculating(firstNum, secondNum, op):
         except ZeroDivisionError:
             return 'бесконечность'
 
-if __name__ == '__main__':
-    firstArgument = inputArgument('Первое число: ')
-    operation = operationChoice()
-    secondArgument = inputArgument('Второе число: ')
-    result = calculating(firstArgument, secondArgument, operation)
+def calculatorExit(choise):
+    if choise == 'y':
+        return False
+    elif choise == 'n':
+        return True
 
-    print('Ответ:', result)
+if __name__ == '__main__':
+    while True:
+        firstArgument = inputArgument('Первое число: ')
+        operation = operationChoice()
+        secondArgument = inputArgument('Второе число: ')
+        result = calculating(firstArgument, secondArgument, operation)
+
+        print('Ответ:', result)
+
+        if calculatorExit(input('Продолжить? (y/n) ')) == True:
+            break

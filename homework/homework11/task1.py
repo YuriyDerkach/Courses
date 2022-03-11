@@ -42,9 +42,15 @@ def calculatorExit(choise):
         return False
     elif choise == 'n':
         return True
+    # проверка на то, какая буква "у" была введена (англ или рус)
+    elif choise == 'у':
+        calculatorExit(input('Вы ввели русскую букву "у", вместо английской.'))
+    else:
+        calculatorExit(input('Введите пожалуйста "y" или "n".'))
 
 if __name__ == '__main__':
-    while True:
+    repeat = True
+    while repeat:
         firstArgument = inputArgument('Первое число: ')
         operation = operationChoice()
         secondArgument = inputArgument('Второе число: ')
@@ -52,5 +58,4 @@ if __name__ == '__main__':
 
         print('Ответ:', result)
 
-        if calculatorExit(input('Продолжить? (y/n) ')) == True:
-            break
+        repeat = calculatorExit(input('Продолжить? (y/n) '))

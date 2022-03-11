@@ -17,7 +17,7 @@ def value_generator(value):
         return str(random.randint(0, 1000))
 
 def collection_generator(collect):
-    values = ('word', 'number')
+    values = ('word', 'number',)
     for step in range(random.randint(4, 10)):
         collect.append(value_generator(random.choice(values)))
     return collect

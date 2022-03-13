@@ -29,6 +29,8 @@ class Analyzer:
                 if int(num) % 2 == 0:
                     even.append(int(num))
             return sum(even) * self.value_len()
+        elif ' ' in self.value:
+            return 'Введите, пожалуйста, одно слово или число (без пробелов).'
         else:
             return 'Введено неверно, попробуйте еще раз.'
 
@@ -37,8 +39,9 @@ class Analyzer:
 
 if __name__ == '__main__':
     exit_methods = ('exit', 'выход',)
+    print('Введите слово или число (для выхода введите exit или выход):')
     while True:
-        analyzer = Analyzer(input('Введите текст или число (для выхода введите exit или выход): '))
+        analyzer = Analyzer(input())
         if analyzer.value.lower() in exit_methods:
             break
         print(analyzer.processing())
